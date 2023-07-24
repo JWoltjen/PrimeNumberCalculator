@@ -40,4 +40,27 @@ class Program
         }
         return true;
     }
+
+    static List<int> GetFactors(int number)
+    {
+        var factors = new List<int>();
+
+        for (int i = 2; i <= Math.Sqrt(number); i++)
+        {
+            if(number % i == 0)
+            {
+                factors.Add(i);
+                if(i != number / i)
+                {
+                    factors.Add(number / i);
+                }
+            }
+        }
+        factors.Sort();
+        return factors;
+    }
+    static List<int> GetPrimeFactors(List<int> factors)
+    {
+
+    }
 }
