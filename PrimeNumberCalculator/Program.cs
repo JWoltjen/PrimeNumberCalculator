@@ -6,8 +6,18 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Enter a number: ");
-        int number = Convert.ToInt32(Console.ReadLine());// it will return the input as a string, so to perform math calculations on the input, we must use Convert.ToInt32
-        PrintIsPrime(number);
+        string input = Console.ReadLine();
+        int number; 
+
+        if (int.TryParse(input, out number))
+        {
+            PrintIsPrime(number);
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid integer");
+        }
+
     }
 
     static void PrintIsPrime(int number)
