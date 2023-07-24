@@ -5,20 +5,26 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Enter a number: ");
-        string input = Console.ReadLine();
-        int number;
-        // The out keyword in C# allows a method to output a value by assigning it to a parameter
-        // whatever the output of the method is, store the value in the variable "number"
-        if (int.TryParse(input, out number)) 
+        while (true)
         {
-            PrintIsPrime(number);
+            Console.WriteLine("Enter a number (or 'q' to quit): ");
+            string input = Console.ReadLine();
+            if (input.ToLower() == "q")
+            {
+                break;
+            }
+            int number;
+            // The out keyword in C# allows a method to output a value by assigning it to a parameter
+            // whatever the output of the method is, store the value in the variable "number"
+            if (int.TryParse(input, out number))
+            {
+                PrintIsPrime(number);
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a valid integer");
+            }
         }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter a valid integer");
-        }
-
     }
 
     static void PrintIsPrime(int number)
