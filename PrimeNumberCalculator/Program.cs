@@ -7,9 +7,10 @@ class Program
     {
         Console.WriteLine("Enter a number: ");
         string input = Console.ReadLine();
-        int number; 
-
-        if (int.TryParse(input, out number))
+        int number;
+        // The out keyword in C# allows a method to output a value by assigning it to a parameter
+        // whatever the output of the method is, store the value in the variable "number"
+        if (int.TryParse(input, out number)) 
         {
             PrintIsPrime(number);
         }
