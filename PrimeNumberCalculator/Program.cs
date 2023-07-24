@@ -7,7 +7,13 @@ class Program
     {
         Console.WriteLine("Enter a number: ");
         int number = Convert.ToInt32(Console.ReadLine());
+        var factors = GetFactors(number);
+        var primeFactors = GetPrimeFactors(factors);
+
         PrintIsPrime(number);
+        Console.WriteLine($"The number {number} has {factors.Count} unique factors.");
+        Console.WriteLine("The prime factors are: " + string.Join(", ", primeFactors));
+        Console.WriteLine("The largest prime factor is: " + (primeFactors.Count > 0 ? primeFactors[primeFactors.Count - 1].ToString() : "None"));
     }
 
     static void PrintIsPrime(int number)
