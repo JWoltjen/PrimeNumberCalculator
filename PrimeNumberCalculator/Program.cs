@@ -13,21 +13,21 @@ class Program
             {
                 break;
             }
-            int number;
+            long number;
             // The out keyword in C# allows a method to output a value by assigning it to a parameter
             // whatever the output of the method is, store the value in the variable "number"
-            if (int.TryParse(input, out number))
+            if (long.TryParse(input, out number))
             {
-                PrintIsPrime(number);
+                PrlongIsPrime(number);
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid integer");
+                Console.WriteLine("Invalid input. Please enter a valid longeger");
             }
         }
     }
 
-    static void PrintIsPrime(int number)
+    static void PrlongIsPrime(long number)
     {
         if(isPrime(number))
         {
@@ -36,11 +36,11 @@ class Program
         else
         {
             Console.WriteLine($"{number} is not a prime number");
-            PrintFactors(number);
+            PrlongFactors(number);
         }
     }
 
-    static void PrintFactors(int number)
+    static void PrlongFactors(long number)
     {
         var factors = GetFactors(number);
         var primeFactors = GetPrimeFactors(factors);
@@ -49,7 +49,7 @@ class Program
         Console.WriteLine("The biggest prime factor is: " + (primeFactors.Count > 0 ? primeFactors[primeFactors.Count - 1]: "None"));
     }
 
-    static bool isPrime (int number)
+    static bool isPrime (long number)
     {
         if (number <= 1) return false;
         if (number == 2) return true;
@@ -57,9 +57,9 @@ class Program
         /*
         * The reason this works is due to the properties of factors. For a number n, if it has a factor greater than its square root, then there must be a corresponding factor that is less than its square root. For example, if n is 36, its square root is 6. The factors of 36 are 1, 2, 3, 4, 6, 9, 12, 18, and 36. Notice that for every factor greater than 6, there is a corresponding factor less than 6.
         */
-        var boundary = (int)Math.Floor(Math.Sqrt(number));
+        var boundary = (long)Math.Floor(Math.Sqrt(number));
        
-        for (int i = 3; i <= boundary; i += 2)//set loop at just beyond special base cases. already checked evens can't be prime
+        for (long i = 3; i <= boundary; i += 2)//set loop at just beyond special base cases. already checked evens can't be prime
         {
             if (number % i == 0)
                 return false;
@@ -67,13 +67,13 @@ class Program
         return true;
     }
 
-    static List<int> GetFactors(int number)
+    static List<long> GetFactors(long number)
     {
         // initialize the list that will hold all the factors
-        var factors = new List<int>();
+        var factors = new List<long>();
 
         // initialize the loop that will look for factors
-        for (int i = 2; i <= Math.Sqrt(number); i++)
+        for (long i = 2; i <= Math.Sqrt(number); i++)
         {
             // if the number divided by i has 0 remainder, it's a factor
             if(number % i == 0)
@@ -90,9 +90,9 @@ class Program
         factors.Sort();
         return factors;
     }
-    static List<int> GetPrimeFactors(List<int> factors)
+    static List<long> GetPrimeFactors(List<long> factors)
     {
-        var primeFactors = new List<int>();
+        var primeFactors = new List<long>();
 
         foreach (var factor in factors)
         {
