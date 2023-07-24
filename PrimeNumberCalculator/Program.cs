@@ -43,13 +43,18 @@ class Program
 
     static List<int> GetFactors(int number)
     {
+        // initialize the list that will hold all the factors
         var factors = new List<int>();
 
+        // initialize the loop that will look for factors
         for (int i = 2; i <= Math.Sqrt(number); i++)
         {
+            // if the number divided by i has 0 remainder, it's a factor
             if(number % i == 0)
             {
+                // add it to the List
                 factors.Add(i);
+                // checking for duplicates 
                 if(i != number / i)
                 {
                     factors.Add(number / i);
@@ -61,6 +66,15 @@ class Program
     }
     static List<int> GetPrimeFactors(List<int> factors)
     {
+        var primeFactors = new List<int>();
 
+        foreach (var factor in factors)
+        {
+            if(isPrime(factor))
+            {
+                primeFactors.Add(factor);
+            }
+        }
+        return primeFactors;
     }
 }
