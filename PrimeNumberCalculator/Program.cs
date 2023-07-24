@@ -18,7 +18,7 @@ class Program
             // whatever the output of the method is, store the value in the variable "number"
             if (long.TryParse(input, out number))
             {
-                PrlongIsPrime(number);
+                PrintIsPrime(number);
             }
             else
             {
@@ -27,7 +27,7 @@ class Program
         }
     }
 
-    static void PrlongIsPrime(long number)
+    static void PrintIsPrime(long number)
     {
         if(isPrime(number))
         {
@@ -36,11 +36,11 @@ class Program
         else
         {
             Console.WriteLine($"{number} is not a prime number");
-            PrlongFactors(number);
+            PrintFactors(number);
         }
     }
 
-    static void PrlongFactors(long number)
+    static void PrintFactors(long number)
     {
         var factors = GetFactors(number);
         var primeFactors = GetPrimeFactors(factors);
