@@ -1,7 +1,13 @@
 # PrimeNumberCalculator
 
-This is a simple console application that calculates whether the number entered by a user is a prime.
-If it is a prime, it will indicate prime. If it is not a prime, it will indicate the number's factors.
-The program observes the single responsibility principle of SOLID by having multiple classes which are only responsible for one thing.
-The program also handles simple errrors such as if the user enters a string instead of a number.
-The program is looped so that the user can continue entering numbers instead of having the program break once the first input is returned.
+GOAL
+Create a Console app that can identify if a number is a
+prime number (a number that cannot be divided by
+anything but 1 and itself). Don’t depend on
+Console.WriteLine.
+BONUS
+Get all the factors for a given number (besides 1 and
+itself). Also get a list of all the prime factors for a given
+number. When a number is given, print out how
+many unique factors go into it, the list of unique
+prime factors, and what the largest prime factor is.
